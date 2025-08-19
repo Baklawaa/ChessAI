@@ -180,7 +180,69 @@ main {
     gap: 0.5rem;
 }
 
-.modal-option {
+input:checked + .slider {
+    background: var(--accent);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* New note modal styles */
+.modal-content.new-note {
+    width: 400px;
+    max-width: 90%;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.tab {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.tab.active {
+    border-bottom: 2px solid var(--accent);
+    font-weight: bold;
+}
+
+.tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#note-title {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.color-picker-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#color-display {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #fff;
+}
+
+#create-note {
+    align-self: flex-end;
     background: var(--accent);
     color: #fff;
     border: none;
@@ -189,10 +251,42 @@ main {
     cursor: pointer;
 }
 
-input:checked + .slider {
-    background: var(--accent);
+/* Editor */
+.editor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
 }
 
-input:checked + .slider:before {
-    transform: translateX(20px);
+.editor-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background: var(--accent);
+    color: #fff;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#editor-content {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    background: inherit;
+    color: inherit;
+    font-family: inherit;
+    resize: none;
 }

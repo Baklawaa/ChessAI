@@ -14,14 +14,14 @@
                     <span>Quick Notes</span>
                     <span class="arrow">▼</span>
                 </button>
-                <ul class="menu-content"></ul>
+                <ul class="menu-content" id="quick-notes-list"></ul>
             </div>
             <div class="menu-section">
                 <button class="menu-toggle">
                     <span>Cahier de notes</span>
                     <span class="arrow">▼</span>
                 </button>
-                <ul class="menu-content"></ul>
+                <ul class="menu-content" id="notebook-list"></ul>
             </div>
         </aside>
         <main>
@@ -50,11 +50,31 @@
     </div>
     <button id="add-note-button" class="fab">+</button>
     <div id="note-modal" class="modal hidden">
-        <div class="modal-content">
-            <h3>New note</h3>
-            <button class="modal-option" data-type="quick">Quick Note</button>
-            <button class="modal-option" data-type="notebook">Notebook</button>
+        <div class="modal-content new-note">
+            <div class="tabs">
+                <button class="tab active" data-tab="quick">Quick Note</button>
+                <button class="tab" data-tab="notebook">Book Note</button>
+            </div>
+            <div class="tab-content" id="quick-tab">
+                <input type="text" id="note-title" placeholder="Note name">
+                <div class="color-picker-wrapper">
+                    <div id="color-display"></div>
+                    <input type="color" id="note-color" value="#ffffff" class="hidden">
+                </div>
+                <button id="create-note">Create</button>
+            </div>
+            <div class="tab-content hidden" id="notebook-tab">
+                <p>Notebook options coming soon...</p>
+            </div>
         </div>
+    </div>
+    <div id="editor" class="editor hidden">
+        <div class="editor-bar">
+            <button id="back-button" class="icon-button">←</button>
+            <span id="editor-title"></span>
+            <button id="save-button" class="icon-button">💾</button>
+        </div>
+        <textarea id="editor-content"></textarea>
     </div>
     <script src="script.js"></script>
 </body>
