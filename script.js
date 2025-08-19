@@ -1,3 +1,17 @@
+
+// Handle tab switching
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+});
+
 // Settings menu toggle
 const settingsButton = document.getElementById('settings-button');
 const settingsMenu = document.getElementById('settings-menu');
@@ -5,44 +19,17 @@ settingsButton.addEventListener('click', () => {
     settingsMenu.classList.toggle('hidden');
 });
 
-// Menu sections
-const menuSections = document.querySelectorAll('.menu-section');
-menuSections.forEach(section => {
-    const toggle = section.querySelector('.menu-toggle');
-    toggle.addEventListener('click', () => section.classList.toggle('open'));
-});
-
-// Theme and auto-expand switches
+// Theme switch
 const themeSwitch = document.getElementById('theme-switch');
-const autoExpandSwitch = document.getElementById('auto-expand-switch');
 const body = document.body;
 
-function loadTheme() {
-    const theme = localStorage.getItem('theme') || 'light';
-    body.classList.remove('light', 'dark');
-    body.classList.add(theme);
-    themeSwitch.checked = theme === 'dark';
-}
-
-function loadAutoExpand() {
-    const pref = localStorage.getItem('autoExpand');
-    const shouldExpand = pref !== 'false';
-    autoExpandSwitch.checked = shouldExpand;
-    if (shouldExpand) {
-        setTimeout(() => menuSections.forEach(s => s.classList.add('open')), 100);
-    }
-}
-
 themeSwitch.addEventListener('change', () => {
-    const theme = themeSwitch.checked ? 'dark' : 'light';
-    body.classList.remove('light', 'dark');
-    body.classList.add(theme);
-    localStorage.setItem('theme', theme);
+    if (themeSwitch.checked) {
+        body.classList.remove('light');
+        body.classList.add('dark');
+    } else {
+        body.classList.remove('dark');
+        body.classList.add('light');
+    }
 });
 
-autoExpandSwitch.addEventListener('change', () => {
-    localStorage.setItem('autoExpand', autoExpandSwitch.checked);
-});
-
-loadTheme();
-loadAutoExpand();

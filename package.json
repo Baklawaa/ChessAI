@@ -1,7 +1,9 @@
 {
   "name": "chessai-notes-ui",
   "version": "1.0.0",
-  "description": "Simple notes UI with sidebar and theme toggle",
+
+  "description": "Simple notes UI with tabs and theme toggle",
+
   "scripts": {
     "test": "echo \"No tests specified\""
   }
