@@ -1,3 +1,4 @@
+
 // Handle tab switching
 const tabs = document.querySelectorAll('.tab');
 const panels = document.querySelectorAll('.panel');
@@ -31,3 +32,4 @@ themeSwitch.addEventListener('change', () => {
         body.classList.add('light');
     }
 });
+
