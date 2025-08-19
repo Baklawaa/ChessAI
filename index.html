@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light">
+    <div class="app">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <button class="menu-toggle">
+                    <span>Quick Notes</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <ul class="menu-content"></ul>
+            </div>
+            <div class="menu-section">
+                <button class="menu-toggle">
+                    <span>Cahier de notes</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <ul class="menu-content"></ul>
+            </div>
+        </aside>
+        <main>
+            <h2>Welcome</h2>
+            <p>Select or create a note...</p>
+        </main>
+    </div>
+    <div class="settings">
+        <button id="settings-button">⚙️</button>
+        <div id="settings-menu" class="hidden">
+            <div class="setting">
+                <span>Dark Mode</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting">
+                <span>Auto-expand menus</span>
+                <label class="switch">
+                    <input type="checkbox" id="auto-expand-switch">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
